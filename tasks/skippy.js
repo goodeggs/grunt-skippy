@@ -10,6 +10,8 @@ var pkg = require('../package.json');
 
 module.exports = function(grunt) {
 
+  require('runonymous-grunt')(grunt);
+
   grunt.registerTask('skippy', pkg.description, function(task, target) {
     var crypto = require('crypto'),
         _ = require('underscore'),
@@ -56,17 +58,12 @@ module.exports = function(grunt) {
       grunt.log.writeln('>>'.yellow + ' Source files changed');
     }
 
-    grunt.task.run(nameArgs);
-    // TODO: write after command succeeds
-    grunt.task._push({
-      task: {
-        fn: function() {
-          cachedDigests[nameArgs] = digest;
-          grunt.file.write(cacheFilePath, JSON.stringify(cachedDigests, null, '  '));
-        }
+    grunt.task.run(
+      nameArgs,
+      function() {
+        cachedDigests[nameArgs] = digest;
+        grunt.file.write(cacheFilePath, JSON.stringify(cachedDigests, null, '  '));
       }
-    });
-
-
+    );
   });
 };
