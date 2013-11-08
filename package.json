@@ -21,5 +21,21 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/goodeggs/grunt-skippy/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.10",
+    "load-grunt-tasks": "~0.2.0",
+    "grunt-contrib-jshint": "~0.7.1",
+    "grunt-contrib-uglify": "~0.2.5",
+    "grunt-simple-mocha": "~0.4.0",
+    "should": "~2.0.2",
+    "grunt-contrib-clean": "~0.5.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "dependencies": {
+    "underscore": "~1.5.2"
   }
 }
