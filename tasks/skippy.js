@@ -57,9 +57,16 @@ module.exports = function(grunt) {
     }
 
     grunt.task.run(nameArgs);
-
     // TODO: write after command succeeds
-    cachedDigests[nameArgs] = digest;
-    grunt.file.write(cacheFilePath, JSON.stringify(cachedDigests, null, '  '));
+    grunt.task._push({
+      task: {
+        fn: function() {
+          cachedDigests[nameArgs] = digest;
+          grunt.file.write(cacheFilePath, JSON.stringify(cachedDigests, null, '  '));
+        }
+      }
+    });
+
+
   });
 };
