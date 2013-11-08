@@ -9,6 +9,8 @@ Skip multitask target if source files haven't changed.
                                  // the source files haven't changed.
 ```
 
+#### Heads up, folks are [exploring something similar](https://github.com/gruntjs/grunt/issues/927) for core grunt 0.5+.
+
 ## Getting Started
 Grunt `~0.4.1`
 
